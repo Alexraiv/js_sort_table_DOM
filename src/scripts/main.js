@@ -8,7 +8,7 @@ document.querySelectorAll('tbody tr').forEach((employeeRow) => {
   const employee = {};
 
   sortCategorys.forEach((category, index) => {
-    const key = category.innerText.replace(/[^a-zA-Z0-9_]/g, '');
+    const key = category.textContent;
     const value = cells[index].innerText;
 
     employee[key] = value;
@@ -19,7 +19,7 @@ document.querySelectorAll('tbody tr').forEach((employeeRow) => {
 
 sortCategorys.forEach((category) => {
   category.addEventListener('click', () => {
-    const columnName = category.innerText;
+    const columnName = category.textContent;
 
     employees.sort((a, b) => {
       const aValue = a[columnName].trim();
@@ -55,4 +55,3 @@ sortCategorys.forEach((category) => {
     });
   });
 });
-
